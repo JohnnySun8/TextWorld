@@ -424,6 +424,18 @@ ENTITIES = {
         "properties": [],
         "desc": [None],
     },
+    
+    # Supermarket
+    "showcase": {
+        "type": "s",
+        "names": ["showcase"],
+        "adjs": ["metallic"],
+        "locations": ["vegetables", "fruits"],
+        "properties": [],
+        "desc": [None],
+    },
+}    
+    
 '''
     # Backyard
     "BBQ": {
@@ -450,17 +462,7 @@ ENTITIES = {
         "properties": [],
         "desc": [None],
     },
-'''
-    # Supermarket
-    "showcase": {
-        "type": "s",
-        "names": ["showcase"],
-        "adjs": ["metallic"],
-        "locations": ["vegetables", "fruits"],
-        "properties": [],
-        "desc": [None],
-    },
-'''
+
     # Livingroom
     "sofa": {
         "type": "s",
@@ -517,7 +519,6 @@ ENTITIES = {
         "desc": [None],
     },
 '''
-}
 
 NEIGHBORS = {
     "kitchen": ["checkout", "cooking"],
@@ -538,7 +539,7 @@ NEIGHBORS = {
 }
 
 ROOMS = [
-    ["checkout"],["kitchen"], ["cooking"]
+    ["checkout"],["kitchen"], ["cooking"],["vegetables"],["fruits"]
     '''
     ["pantry", "livingroom", "corridor", "bedroom", "bathroom"],
     ["shed", "garden", "backyard"],
