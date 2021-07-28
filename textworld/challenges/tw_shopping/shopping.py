@@ -524,7 +524,8 @@ NEIGHBORS = {
     "kitchen": ["checkout", "cooking"],
     "checkout": ["kitchen", "cooking"], 
     "cooking": ["kitchen"],
-    '''
+}
+'''
     "livingroom": ["kitchen", "bedroom", "driveway", "corridor"],
     "bathroom": ["corridor"],
     "bedroom": ["livingroom", "corridor"],
@@ -535,17 +536,17 @@ NEIGHBORS = {
     "street": ["driveway", "supermarket"],
     "corridor": ["livingroom", "kitchen", "bedroom", "bathroom", "driveway", "backyard"],
     "supermarket": ["street"],
-    '''
-}
+'''
+
 
 ROOMS = [
     ["checkout"],["kitchen"], ["cooking"],["vegetables"],["fruits"]
-    '''
+]
+'''
     ["pantry", "livingroom", "corridor", "bedroom", "bathroom"],
     ["shed", "garden", "backyard"],
     ["driveway", "street", "supermarket"]
-    '''
-]
+'''
 
 DOORS = [
     {
@@ -560,7 +561,8 @@ DOORS = [
         "path": ("checkout", "cooking"),
         "names": ["sliding door", "commercial glass door"],
     },
-    '''
+]
+'''
     {
         "path": ("backyard", "shed"),
         "names": ["barn door", "wooden door"],
@@ -577,8 +579,7 @@ DOORS = [
         "path": ("supermarket", "street"),
         "names": ["sliding door", "commercial glass door"],
     },
-    '''
-]
+'''
 
 def pick_name(M, names, rng):
     names = list(names)
@@ -882,14 +883,7 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
     options.nb_rooms = settings.get("go", 1)
     if options.nb_rooms == 1:
         rooms_to_place = ROOMS[:1]
-    '''
-    elif options.nb_rooms == 6:
-        rooms_to_place = ROOMS[:2]
-    elif options.nb_rooms == 9:
-        rooms_to_place = ROOMS[:3]
-    elif options.nb_rooms == 12:
-        rooms_to_place = ROOMS[:4]
-    '''
+    ## Options for other rooms go here --
     else:
         raise ValueError("Cooking games can only have {1, 6, 9, 12} rooms.")
 
@@ -917,15 +911,6 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
     # command to happen in the checkout.
     M.add_fact("checkout_location", checkout, itemList)
 
-    '''
-    # Find kitchen.
-    kitchen = M.find_by_name("kitchen")
-
-    # The following predicates will be used to force the "prepare meal"
-    # command to happen in the kitchen.
-    M.add_fact("cooking_location", kitchen, recipe)
-    '''
-
     # Place some default furnitures.
     place_entities(M, ["table", "stove", "oven", "counter", "fridge", "shelf", "showcase"], rng_objects) # "BBQ",
 
@@ -943,16 +928,8 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
     M.set_player(start_room)
 
     M.grammar = textworld.generator.make_grammar(options.grammar, rng=rng_grammar)
-    '''
-    # Remove every food preparation with grilled, if there is no BBQ.
-    if M.find_by_name("BBQ") is None:
-        for name, food_preparations in allowed_food_preparations.items():
-            allowed_food_preparations[name] = [food_preparation for food_preparation in food_preparations
-                                               if "grilled" not in food_preparation]
-
-        # Disallow food with an empty preparation list.
-        allowed_foods = [name for name in allowed_foods if allowed_food_preparations[name]]
-    '''
+    ### BBQ settings go here --
+    
     # Decide which ingredients are needed.
     nb_ingredients = settings.get("list", 1)
     assert nb_ingredients > 0 and nb_ingredients <= 5, "list must have {1,2,3,4,5} ingredients."
@@ -1046,17 +1023,8 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
             #type_of_cooking, type_of_cutting = food_preparations[idx]
             #ingredients.append((food, type_of_cooking, type_of_cutting))
             ingredients.append((food))
-    '''
-    # Add necessary facts about the recipe.
-    for i, (food, type_of_cooking, type_of_cutting) in enumerate(ingredients):
-        ingredient = M.new(type="ingredient", name="")
-        food.add_property("ingredient_{}".format(i + 1))
-        M.add_fact("base", food, ingredient)
-        M.add_fact(type_of_cutting, ingredient)
-        M.add_fact(type_of_cooking, ingredient)
-        M.add_fact("in", ingredient, recipe)
-        M.nowhere.append(ingredient)
-   '''     
+    ## Cooking facts for recipe goes here --
+    
     # Add necessary facts about the recipe.
     for i, (food) in enumerate(ingredients):
         ingredient = M.new(type="ingredient", name="")
@@ -1066,25 +1034,8 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
         #M.add_fact(type_of_cooking, ingredient)
         M.add_fact("in", ingredient, itemList)
         M.nowhere.append(ingredient)
-    '''
-    # Depending on the skills and how the ingredient should be processed
-    # we change the predicates of the food objects accordingly.
-    for food, type_of_cooking, type_of_cutting in ingredients:
-        if not settings.get("cook"):  # Food should already be cooked accordingly.
-            food.add_property(type_of_cooking)
-            food.add_property("cooked")
-            if food.has_property("inedible"):
-                food.add_property("edible")
-                food.remove_property("inedible")
-            if food.has_property("raw"):
-                food.remove_property("raw")
-            if food.has_property("needs_cooking"):
-                food.remove_property("needs_cooking")
-
-        if not settings.get("cut"):  # Food should already be cut accordingly.
-            food.add_property(type_of_cutting)
-            food.remove_property("uncut")
-    '''
+    ### ingredient processing skills go here --
+    
     if not settings.get("open"):
         for entity in M._entities.values():
             if entity.has_property("closed"):
@@ -1104,25 +1055,8 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
         if ingredient[0] not in M.inventory:
             holding_ingredient = Event(conditions={M.new_fact("in", ingredient[0], M.inventory)})
             quests.append(Quest(win_events=[holding_ingredient]))
-        '''
-        win_events = []
-        if ingredient[1] != TYPES_OF_COOKING[0] and not ingredient[0].has_property(ingredient[1]):
-            win_events += [Event(conditions={M.new_fact(ingredient[1], ingredient[0])})]
-
-        fail_events = [Event(conditions={M.new_fact(t, ingredient[0])})
-                       for t in set(TYPES_OF_COOKING[1:]) - {ingredient[1]}]  # Wrong cooking.
-
-        quests.append(Quest(win_events=win_events, fail_events=[ingredient_consumed] + fail_events))
-
-        win_events = []
-        if ingredient[2] != TYPES_OF_CUTTING[0] and not ingredient[0].has_property(ingredient[2]):
-            win_events += [Event(conditions={M.new_fact(ingredient[2], ingredient[0])})]
-
-        fail_events = [Event(conditions={M.new_fact(t, ingredient[0])})
-                       for t in set(TYPES_OF_CUTTING[1:]) - {ingredient[2]}]  # Wrong cutting.
+         ### Quests for type of cooking go here --
         
-        quests.append(Quest(win_events=win_events, fail_events=[ingredient_consumed] + fail_events))
-        '''
     #holding_meal = Event(conditions={M.new_fact("in", meal, M.inventory)})
     #quests.append(Quest(win_events=[holding_meal], fail_events=consumed_ingredient_events))
 
@@ -1181,62 +1115,8 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
     #walkthrough.append("put  meal")
     #walkthrough.append("eat meal")
     
-    '''
-    # 4. Process ingredients (cook).
-    if settings.get("cook"):
-        for food, type_of_cooking, _ in ingredients:
-            if type_of_cooking == "fried":
-                stove = M.find_by_name("stove")
-                walkthrough.append("cook {} with {}".format(food.name, stove.name))
-            elif type_of_cooking == "roasted":
-                oven = M.find_by_name("oven")
-                walkthrough.append("cook {} with {}".format(food.name, oven.name))
-            elif type_of_cooking == "grilled":
-                toaster = M.find_by_name("BBQ")
-                # 3.a move to the backyard.
-                walkthrough += move(M, G, kitchen, toaster.parent)
-                # 3.b grill the food.
-                walkthrough.append("cook {} with {}".format(food.name, toaster.name))
-                # 3.c move back to the kitchen.
-                walkthrough += move(M, G, toaster.parent, kitchen)
-
-    # 5. Process ingredients (cut).
-    if settings.get("cut"):
-        free_up_space = settings.get("drop") and not len(ingredients) == 1
-        knife = M.find_by_name("knife")
-        if knife:
-            knife_location = knife.parent.name
-            knife_on_the_floor = knife_location == "kitchen"
-            for i, (food, _, type_of_cutting) in enumerate(ingredients):
-                if type_of_cutting == "uncut":
-                    continue
-
-                if free_up_space:
-                    ingredient_to_drop = ingredients[(i + 1) % len(ingredients)][0]
-                    walkthrough.append("drop {}".format(ingredient_to_drop.name))
-
-                # Assume knife is reachable.
-                if knife_on_the_floor:
-                    walkthrough.append("take {}".format(knife.name))
-                else:
-                    walkthrough.append("take {} from {}".format(knife.name, knife_location))
-
-                if type_of_cutting == "chopped":
-                    walkthrough.append("chop {} with {}".format(food.name, knife.name))
-                elif type_of_cutting == "sliced":
-                    walkthrough.append("slice {} with {}".format(food.name, knife.name))
-                elif type_of_cutting == "diced":
-                    walkthrough.append("dice {} with {}".format(food.name, knife.name))
-
-                walkthrough.append("drop {}".format(knife.name))
-                knife_on_the_floor = True
-                if free_up_space:
-                    walkthrough.append("take {}".format(ingredient_to_drop.name))
+    ### Cook, cut and prep meal walkthroughs go here --
     
-    # 6. Prepare and eat meal.
-    walkthrough.append("put  meal")
-    walkthrough.append("eat meal")
-    '''
     list_desc = "You find your weekly Shopping list and start reading:\n"
     itemList = textwrap.dedent(
         """
@@ -1254,16 +1134,8 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
     list_items = "\n  ".join(ingredient[0].name for ingredient in ingredients)
 
     list_directions = []
-    '''
-    for ingredient in ingredients:
-        cutting_verb = TYPES_OF_CUTTING_VERBS.get(ingredient[2])
-        if cutting_verb:
-            recipe_directions.append(cutting_verb + " the " + ingredient[0].name)
-
-        cooking_verb = TYPES_OF_COOKING_VERBS.get(ingredient[1])
-        if cooking_verb:
-            recipe_directions.append(cooking_verb + " the " + ingredient[0].name)
-    '''
+    ### Cooking and cutting directions go here --
+    
     list_directions.append("put all items on checkout counter")
     list_directions = "\n  ".join(list_directions)
     itemList = itemList.format(ingredients=list_items, directions=list_directions)
@@ -1336,12 +1208,8 @@ def build_argparser(parser=None):
                        help="Number of locations in the game (1, 6, 9, or 12). Default: %(default)s")
     group.add_argument('--open', action="store_true",
                        help="Whether containers/doors need to be opened.")
-    '''
-    group.add_argument('--cook', action="store_true",
-                       help="Whether some ingredients need to be cooked.")
-    group.add_argument('--cut', action="store_true",
-                       help="Whether some ingredients need to be cut.")
-    '''
+    ### Cook and cut settings go here --
+    
     group.add_argument('--drop', action="store_true",
                        help="Whether the player's inventory has limited capacity.")
     group.add_argument("--list-seed", type=int, default=0, metavar="INT",
