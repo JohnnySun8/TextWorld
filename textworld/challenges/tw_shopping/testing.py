@@ -2,15 +2,13 @@
 # Licensed under the MIT license.
 
 """
-.. _the_cooking_game:
+.. _the_shopping_game:
 
-The Cooking Game
+The Shopping game
 ================
 
-This type of game was used for the competition *First TextWorld Problems* [1]_.
-The overall objective of the game is to locate the kitchen, read the cookbook,
-fetch the recipe's ingredients, process them accordingly, prepare the meal, and
-eat it. To control the game's difficulty, one can specify the amount of skills
+This type of game is similar to the cooking game used for the competition *First TextWorld Problems* [1]_.
+The overall objective of the game is to obtain the items supplied in a shopping/grocery list. The items will be in different sections of the game world. The world changes with the number of rooms specified, adding more complexity. Additionally, to control the game's difficulty, one can specify the amount of skills
 that are involved to solve it (see skills section below).
 
 References
@@ -59,6 +57,52 @@ TYPES_OF_CUTTING_VERBS = {"chopped": "chop", "sliced": "slice", "diced": "dice"}
 
 FOODS_SPLITS = {
     'train': [
+        # CLOTHING
+        'jeans',
+        't-shirt',
+        'socks',
+        'suit',
+        'sweater',
+        # HYGIENE
+        'toothpaste',
+        'toothbrush',
+        'deodorant',
+        'detergent',
+        'sponge',
+        # VEG
+        'broccoli',
+        'aubergine',
+        'red radish',
+        # FRUIT
+        'mango',
+        'plum',
+        'white grapes',
+        # MEAT
+        'salmon',
+        'pork bacon', 
+        # STATIONERY
+        'pen',
+        'paper',
+        'eraser',
+        'scissors',
+        'notebook',
+        # TECH & HW
+        'smartphone',
+        'vacuum cleaner',
+        'monitor',
+        'kettle',
+        'microwave',
+        # INGR
+        'condensed milk',
+        'cumin powder',
+        'dark chocolate',
+        # REST
+        'chicken alfredo',
+        'meat shawarma',
+        'tandoori chicken',
+        'shrimp pizza',
+        'corned beef',
+        # ORIG
         'orange bell pepper',
         'block of cheese',
         'black pepper',
@@ -80,9 +124,46 @@ FOODS_SPLITS = {
         'pork chop',
         'red apple',
         'chicken wing',
-        'carrot'
+        'carrot'        
     ],
     'valid': [
+        # CLOTHING
+        'shorts',
+        'shirt',
+        'jacket',
+        'skirt',
+        'bra',
+        # HYGIENE
+        'cotton balls',
+        'q tips',
+        'bar soap',
+        'shampoo',
+        'lotion',
+        # VEG
+        'spinach',
+        'pink radish',
+        # FRUIT
+        'pineapple',
+        'red grapes',
+        # MEAT
+        'beef bacon',
+        'cod',
+        # STATIONERY
+        'paper clips',
+        'stapler',
+        'folder',
+        # TECH & HW
+        'coffee maker',
+        'keyboard',
+        'dehumidifier',
+        # INGR
+        'milk chocolate',
+        'maple syrup',
+        # REST
+        'beef lasagne',
+        'cheeseburger',
+        'cottage pie',
+        # ORIG
         'vegetable oil',
         'green apple',
         'red tuna',
@@ -93,6 +174,38 @@ FOODS_SPLITS = {
         'chicken breast'
     ],
     'test': [
+        # CLOTHING
+        'coat',
+        'boots',
+        'hoodie',
+        'boxer shorts'
+        'scarf',
+        # HYGIENE
+        'dental floss',
+        'tissues',
+        'broomstick',
+        'conditioner',
+        'hand sanitiser',
+        # VEG
+        'black radish',
+        # FRUIT
+        'black grapes',
+        # MEAT
+        'turkey bacon',
+        # STATIONERY
+        'pencil',
+        'fountain pen',
+        'highlighter',
+        # TECH & HW
+        'blender',
+        'smartwatch'
+        # INGR
+        'white chocolate',
+        'honey',
+        # REST
+        'shepherds pie'
+        'fried chicken',
+        # ORIG
         'milk',
         'yellow onion',
         'yellow apple',
@@ -106,6 +219,117 @@ FOODS_SPLITS = {
 
 FOOD_PREPARATIONS_SPLITS = {
     'train': {
+         # CLOTHING
+        'jeans': [
+            ('raw', 'uncut')
+        ],
+        't-shirt': [
+            ('raw', 'uncut')
+        ],
+        'socks': [
+            ('raw', 'uncut')
+        ],
+        'suit': [
+            ('raw', 'uncut')
+        ],
+        'sweater': [
+            ('raw', 'uncut')
+        ],
+        'toothpaste': [
+            ('raw', 'uncut')
+        ],
+        'toothbrush': [
+            ('raw', 'uncut')
+        ],
+        'deodorant': [
+            ('raw', 'uncut')
+        ],
+        'detergent': [
+            ('raw', 'uncut')
+        ],
+        'sponge': [
+            ('raw', 'uncut')
+        ],
+        'broccoli': [
+            ('raw', 'uncut')
+        ],
+        'aubergine': [
+            ('raw', 'uncut')
+        ],
+        'red radish': [
+            ('raw', 'uncut')
+        ],
+        'mango': [
+            ('raw', 'uncut')
+        ],
+        'plum': [
+            ('raw', 'uncut')
+        ],
+        'white grapes': [
+            ('raw', 'uncut')
+        ],
+        'salmon': [
+            ('raw', 'uncut')
+        ],
+        'pork bacon': [
+            ('raw', 'uncut')
+        ],
+        'pen': [
+            ('raw', 'uncut')
+        ],
+        'paper': [
+            ('raw', 'uncut')
+        ],
+        'eraser': [
+            ('raw', 'uncut')
+        ],
+        'scissors': [
+            ('raw', 'uncut')
+        ],
+        'notebook': [
+            ('raw', 'uncut')
+        ],
+        'smartphone': [
+            ('raw', 'uncut')
+        ],
+        'vacuum cleaner': [
+            ('raw', 'uncut')
+        ],
+        'monitor': [
+            ('raw', 'uncut')
+        ],
+        'kettle': [
+            ('raw', 'uncut')
+        ],
+        'microwave': [
+            ('raw', 'uncut')
+        ],
+        'condensed milk': [
+            ('raw', 'uncut')
+        ],
+        'cumin powder': [
+            ('raw', 'uncut')
+        ],
+        'dark chocolate': [
+            ('raw', 'uncut')
+        ],
+        'chicken alfredo': [
+            ('raw', 'uncut')
+        ],
+        'meat shawarma': [
+            ('raw', 'uncut')
+        ],
+        'tandoori chicken': [
+            ('raw', 'uncut')
+        ],
+        'shrimp pizza': [
+            ('raw', 'uncut')
+        ],
+        'corned beef': [
+            ('raw', 'uncut')
+        ],
+                
+        # ORIGINAL COOOKING 
         'orange bell pepper': [
             ('raw', 'chopped'), ('roasted', 'diced'), ('grilled', 'uncut'), ('raw', 'uncut'), ('raw', 'sliced'),
             ('grilled', 'sliced'), ('roasted', 'sliced'), ('fried', 'diced'), ('grilled', 'chopped')
@@ -235,115 +459,461 @@ FOOD_PREPARATIONS_SPLITS = {
 }
 
 FOODS_COMPACT = {
+    "jeans": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "t-shirt": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "socks": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "suit": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "sweater": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "shorts": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "shirt": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "jacket": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "skirt": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "bra": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "coat": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "boots": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "hoodie": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "boxer shorts": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "scarf": {
+        "properties": ["inedible"],
+        "locations": ["clothing.clothing showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "toothpaste": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "toothbrush": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "deodorant": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "detergent": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "sponge": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "cotton balls": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "q tips": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "bar soap": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "shampoo": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "lotion": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.ingredients showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "dental floss": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "tissues": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "broomstick": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "conditioner": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "hand santiser": {
+        "properties": ["inedible"],
+        "locations": ["hygiene.hygiene showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "broccoli": {
+        "properties": ["edible"],
+        "locations": ["vegetables.green veg basket", "checkout.basket"], #"supermarket.showcase"],
+    },
+    "aubergine": {
+        "properties": ["edible"],
+        "locations": ["vegetables.veg basket", "checkout.basket"], #"supermarket.showcase"],
+    },
+    "red radish": {
+        "properties": ["edible"],
+        "locations": ["vegetables.veg fridge", "checkout.fridge"], #"supermarket.showcase"],
+    },
+    "spinach": {
+        "properties": ["edible"],
+        "locations": ["vegetables.veg fridge", "checkout.fridge"], #"supermarket.showcase"],
+    },
+    "pink radish": {
+        "properties": ["edible"],
+        "locations": ["vegetables.veg fridge", "checkout.fridge"], #"supermarket.showcase"],
+    },
+    "black radish": {
+        "properties": ["edible"],
+        "locations": ["vegetables.veg fridge", "checkout.fridge"], #"supermarket.showcase"],
+    },
+    "pink radish": {
+        "properties": ["edible"],
+        "locations": ["vegetables.veg fridge", "checkout.fridge"], #"supermarket.showcase"],
+    },
+    "black grapes": {
+        "properties": ["edible"],
+        "locations": ["fruits.fruit basket", "checkout.basket"], #"supermarket.showcase"],
+    },
+    "red grapes": {
+        "properties": ["edible"],
+        "locations": ["fruits.fruit basket", "checkout.basket"], #"supermarket.showcase"],
+    },
+    "white grapes": {
+        "properties": ["edible"],
+        "locations": ["fruits.fruit basket", "checkout.basket"], #"supermarket.showcase"],
+    },
+    "pineapple": {
+        "properties": ["edible"],
+        "locations": ["fruits.yellow basket", "checkout.basket"], #"supermarket.showcase"],
+    },
+    "mango": {
+        "properties": ["edible"],
+        "locations": ["fruits.yellow basket", "checkout.basket"], #"supermarket.showcase"],
+    },
+    "plum": {
+        "properties": ["edible"],
+        "locations": ["fruits.fruit basket", "checkout.basket"], #"supermarket.showcase"],
+    },
+    "turkey bacon": {
+        "properties": ["edible"],
+        "locations": ["meats.meats fridge", "checkout.fridge"], #"supermarket.showcase"],
+    },
+    "beef bacon": {
+        "properties": ["edible"],
+        "locations": ["meats.meats fridge", "checkout.fridge"], #"supermarket.showcase"],
+    },
+    "pork bacon": {
+        "properties": ["edible"],
+        "locations": ["meats.meats fridge", "checkout.fridge"], #"supermarket.showcase"],
+    },
+    "cod": {
+        "properties": ["edible"],
+        "locations": ["meats.meats showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "salmon": {
+        "properties": ["edible"],
+        "locations": ["meats.meats showcase", "checkout.showcase"], #"supermarket.showcase"],
+    },
+    "pen": {
+        "properties": ["edible"],
+        "locations": ["stationery.stationery shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "paper": {
+        "properties": ["edible"],
+        "locations": ["stationery.stationery shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "eraser": {
+        "properties": ["edible"],
+        "locations": ["stationery.stationery shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "scissors": {
+        "properties": ["edible"],
+        "locations": ["stationery.stationery shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "notebook": {
+        "properties": ["edible"],
+        "locations": ["stationery.stationery shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "paper clips": {
+        "properties": ["edible"],
+        "locations": ["stationery.stationery shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "stapler": {
+        "properties": ["edible"],
+        "locations": ["stationery.stationery shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "folder": {
+        "properties": ["edible"],
+        "locations": ["stationery.stationery shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "pencil": {
+        "properties": ["edible"],
+        "locations": ["stationery.stationery shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "fountain pen": {
+        "properties": ["edible"],
+        "locations": ["stationery.stationery shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "highlighter": {
+        "properties": ["edible"],
+        "locations": ["stationery.stationery shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "smartphone": {
+        "properties": ["edible"],
+        "locations": ["hardware.hardware shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "vacuum cleaner": {
+        "properties": ["edible"],
+        "locations": ["hardware.hardware shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "monitor": {
+        "properties": ["edible"],
+        "locations": ["hardware.hardware shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "kettle": {
+        "properties": ["edible"],
+        "locations": ["hardware.hardware shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "microwave": {
+        "properties": ["edible"],
+        "locations": ["hardware.hardware shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "coffee maker": {
+        "properties": ["edible"],
+        "locations": ["hardware.hardware shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "keyboard": {
+        "properties": ["edible"],
+        "locations": ["hardware.hardware shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "dehumidifier": {
+        "properties": ["edible"],
+        "locations": ["hardware.hardware shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "blender": {
+        "properties": ["edible"],
+        "locations": ["hardware.hardware shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "smartwatch": {
+        "properties": ["edible"],
+        "locations": ["hardware.hardware shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "condensed milk": {
+        "properties": ["edible"],
+        "locations": ["ingredients.ingredients shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "cumin powder": {
+        "properties": ["edible"],
+        "locations": ["ingredients.ingredients shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "dark chocolate": {
+        "properties": ["edible"],
+        "locations": ["ingredients.ingredients shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "milk chocolate": {
+        "properties": ["edible"],
+        "locations": ["ingredients.ingredients shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "maple syrup": {
+        "properties": ["edible"],
+        "locations": ["ingredients.ingredients shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "white chocolate": {
+        "properties": ["edible"],
+        "locations": ["ingredients.ingredients shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "honey": {
+        "properties": ["edible"],
+        "locations": ["ingredients.ingredients shelf", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "chicken alfredo": {
+        "properties": ["edible"],
+        "locations": ["restaurant.restaurant table", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "meat shawarma": {
+        "properties": ["edible"],
+        "locations": ["restaurant.restaurant table", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "tandoori chicken": {
+        "properties": ["edible"],
+        "locations": ["restaurant.restaurant table", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "shrimp pizza": {
+        "properties": ["edible"],
+        "locations": ["restaurant.restaurant table", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "corned beef": {
+        "properties": ["edible"],
+        "locations": ["restaurant.restaurant table", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "beef lasagne": {
+        "properties": ["edible"],
+        "locations": ["restaurant.restaurant table", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "cheeseburger": {
+        "properties": ["edible"],
+        "locations": ["restaurant.restaurant table", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "cottage pie": {
+        "properties": ["edible"],
+        "locations": ["restaurant.restaurant table", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "shepherds pie": {
+        "properties": ["edible"],
+        "locations": ["restaurant.restaurant table", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    "fried chicken": {
+        "properties": ["edible"],
+        "locations": ["restaurant.restaurant table", "checkout.shelf"], #"supermarket.showcase"],
+    },
+    
+    # ORIGINAL COOKING 
     "egg": {
         "properties": ["inedible", "cookable", "needs_cooking"],
-        "locations": ["kitchen.fridge", "supermarket.showcase"],
+        "locations": ["ingredients.ingredients fridge", "checkout.fridge"], #"supermarket.showcase"],
     },
     "milk": {
         "indefinite": "some",
         "properties": ["drinkable", "inedible"],
-        "locations": ["kitchen.fridge", "supermarket.showcase"],
+        "locations": ["ingredients.ingredients fridge", "checkout.fridge"], #"supermarket.showcase"],
     },
     "water": {
         "indefinite": "some",
         "properties": ["drinkable", "inedible"],
-        "locations": ["kitchen.fridge", "supermarket.showcase"],
+        "locations": ["ingredients.ingredients fridge", "checkout.fridge"], #"supermarket.showcase"],
     },
     "cooking oil": {
         "names": ["vegetable oil", "peanut oil", "olive oil"],
         "indefinite": "some",
         "properties": ["inedible"],
-        "locations": ["pantry.shelf", "supermarket.showcase"],
+        "locations": ["ingredients.ingredients shelf"], #"supermarket.showcase"],
     },
     "chicken wing": {
         "properties": ["inedible", "cookable", "needs_cooking"],
-        "locations": ["kitchen.fridge", "supermarket.showcase"],
+        "locations": ["meats.meats showcase", "meats.meats fridge", "checkout.fridge"], #"supermarket.showcase"],
     },
     "chicken leg": {
         "properties": ["inedible", "cookable", "needs_cooking"],
-        "locations": ["kitchen.fridge", "supermarket.showcase"],
+        "locations": ["meats.meats showcase", "meats.meats fridge", "checkout.fridge"], #"supermarket.showcase"],
     },
     "chicken breast": {
         "properties": ["inedible", "cookable", "needs_cooking"],
-        "locations": ["kitchen.fridge", "supermarket.showcase"],
+        "locations": ["meats.meats showcase", "meats.meats fridge", "checkout.fridge"], #"supermarket.showcase"],
     },
     "pork chop": {
         "properties": ["inedible", "cookable", "needs_cooking", "cuttable", "uncut"],
-        "locations": ["kitchen.fridge", "supermarket.showcase"],
+        "locations": ["meats.meats showcase", "meats.meats fridge", "checkout.fridge"], #"supermarket.showcase"],
     },
     "tuna": {
         "names": ["red tuna", "white tuna"],
         "properties": ["inedible", "cookable", "needs_cooking", "cuttable", "uncut"],
-        "locations": ["kitchen.fridge", "supermarket.showcase"],
+        "locations": ["meats.meats showcase", "meats.meats fridge", "checkout.fridge"], #"supermarket.showcase"],
     },
     "carrot": {
         "properties": ["edible", "cookable", "raw", "cuttable", "uncut"],
-        "locations": ["kitchen.fridge", "garden"],
+        "locations": ["vegetables.orange basket","vegetables.veg fridge", "checkout.fridge"], #"garden"],
     },
     "onion": {
         "names": ["red onion", "white onion", "yellow onion"],
         "properties": ["edible", "cookable", "raw", "cuttable", "uncut"],
-        "locations": ["kitchen.fridge", "garden"],
+        "locations": ["vegetables.veg basket","vegetables.veg fridge", "checkout.fridge"], #"garden"],
     },
     "lettuce": {
         "properties": ["edible", "cookable", "raw", "cuttable", "uncut"],
-        "locations": ["kitchen.fridge", "garden"],
+        "locations": ["vegetables.green veg basket","vegetables.veg fridge", "checkout.fridge"], #"garden"],
     },
     "potato": {
         "names": ["red potato", "yellow potato", "purple potato"],
         "properties": ["inedible", "cookable", "needs_cooking", "cuttable", "uncut"],
-        "locations": ["kitchen.counter", "garden"],
+        "locations": ["vegetables.veg basket","vegetables.veg fridge", "checkout.fridge"], #"garden"],
     },
     "apple": {
         "names": ["red apple", "yellow apple", "green apple"],
         "properties": ["edible", "cookable", "raw", "cuttable", "uncut"],
-        "locations": ["kitchen.counter", "garden"],
+        "locations": ["fruits.fruit basket","fruits.fruits fridge", "checkout.fridge"], #"garden"],
     },
     "banana": {
         "properties": ["edible", "cookable", "raw", "cuttable", "uncut"],
-        "locations": ["kitchen.counter", "garden"],
+        "locations": ["fruits.yellow basket","fruits.fruits fridge", "checkout.fridge"], #"garden"],
     },
     "tomato": {
         "properties": ["edible", "cookable", "raw", "cuttable", "uncut"],
-        "locations": ["kitchen.counter", "garden"],
+        "locations": ["vegetables.red veg basket","vegetables.veg fridge", "checkout.fridge"], #"garden"],
     },
     "hot pepper": {
         "names": ["red hot pepper", "green hot pepper"],
         "properties": ["edible", "cookable", "raw", "cuttable", "uncut"],
-        "locations": ["kitchen.counter", "garden"],
+        "locations": ["vegetables.veg basket","vegetables.veg fridge", "checkout.fridge"], #"garden"],
     },
     "bell pepper": {
         "names": ["red bell pepper", "yellow bell pepper", "green bell pepper", "orange bell pepper"],
         "properties": ["edible", "cookable", "raw", "cuttable", "uncut"],
-        "locations": ["kitchen.fridge", "garden"],
+        "locations": ["vegetables.veg basket","vegetables.veg fridge", "checkout.fridge"], #"garden"],
     },
     "black pepper": {
         "properties": ["edible"],
-        "locations": ["pantry.shelf", "supermarket.showcase"],
+        "locations": ["ingredients.ingredients shelf"], #pantry.shelf", "supermarket.showcase"],
     },
     "flour": {
         "properties": ["edible"],
-        "locations": ["pantry.shelf", "supermarket.showcase"],
+        "locations": ["ingredients.ingredients shelf"], #"pantry.shelf", "supermarket.showcase"],
     },
     "salt": {
         "properties": ["edible"],
-        "locations": ["pantry.shelf", "supermarket.showcase"],
+        "locations": ["ingredients.ingredients shelf"], #"pantry.shelf", "supermarket.showcase"],
     },
     "sugar": {
         "properties": ["edible"],
-        "locations": ["pantry.shelf", "supermarket.showcase"],
+        "locations": ["ingredients.ingredients shelf"], #"pantry.shelf", "supermarket.showcase"],
     },
     "block of cheese": {
         "properties": ["edible", "cookable", "raw", "cuttable", "uncut"],
-        "locations": ["kitchen.fridge", "supermarket.showcase"],
+        "locations": ["ingredients.ingredients fridge", "ingredients.ingredients showcase", "checkout.fridge"], #"supermarket.showcase"],
     },
     "cilantro": {
         "properties": ["edible", "cuttable", "uncut"],
-        "locations": ["kitchen.fridge", "garden"],
+        "locations": ["vegetables.green veg basket","vegetables.veg fridge", "checkout.fridge"], #"garden"],
     },
     "parsley": {
         "properties": ["edible", "cuttable", "uncut"],
-        "locations": ["kitchen.fridge", "garden"],
+        "locations": ["vegetables.green veg basket","vegetables.veg fridge", "checkout.fridge"], #"garden"],
     }
 }
 
@@ -362,7 +932,7 @@ ENTITIES = {
         "type": "o",
         "names": ["cookbook", "recipe book"],
         "adjs": ["interesting"],
-        "locations": ["kitchen.counter", "kitchen.table"],
+        "locations": ["checkout.counter"],
         "properties": [],
         "desc": [None],
     },
@@ -370,8 +940,17 @@ ENTITIES = {
         "type": "o",
         "names": ["knife"],
         "adjs": ["sharp"],
-        "locations": ["kitchen.counter", "kitchen.table"],
+        "locations": ["checkout.counter", "hardware.hardware shelf"],
         "properties": ["sharp"],
+        "desc": [None],
+    },
+    
+     "shopping list": {
+        "type": "o",
+        "names": ["shopping list", "grocery list", "list"],
+        "adjs": ["interesting"],
+        "locations": ["checkout.counter"],
+        "properties": [],
         "desc": [None],
     },
 
@@ -380,23 +959,119 @@ ENTITIES = {
         "type": "c",
         "names": ["fridge", "refrigerator"],
         "adjs": ["conventional"],
-        "locations": ["kitchen"],
+        "locations": ["checkout"],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "ingredients fridge": {
+        "type": "c",
+        "names": ["ingredients fridge", "ingredients refrigerator"],
+        "adjs": ["conventional"],
+        "locations": ["ingredients"],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "veg fridge": {
+        "type": "c",
+        "names": ["veg fridge", "veg refrigerator"],
+        "adjs": ["conventional"],
+        "locations": ["vegetables",],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "fruits fridge": {
+        "type": "c",
+        "names": ["fruits fridge", "fruits refrigerator"],
+        "adjs": ["conventional"],
+        "locations": ["fruits"],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "meats fridge": {
+        "type": "c",
+        "names": ["meats fridge", "meats refrigerator", "meats freezer"],
+        "adjs": ["conventional"],
+        "locations": ["meats"],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "basket": {
+        "type": "c",
+        "names": ["basket"],
+        "adjs": ["woven", "traditional", "cute"],
+        "locations": ["checkout"],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "veg basket": {
+        "type": "c",
+        "names": ["veg basket"],
+        "adjs": ["woven", "traditional", "cute"],
+        "locations": ["vegetables"],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "fruit basket": {
+        "type": "c",
+        "names": ["fruit basket"],
+        "adjs": ["woven", "traditional", "cute"],
+        "locations": ["fruits"],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "red veg basket": {
+        "type": "c",
+        "names": ["red veg basket", "red vegetable basket"],
+        "adjs": ["woven", "traditional", "cute"],
+        "locations": ["vegetables"],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "red fruit basket": {
+        "type": "c",
+        "names": ["red fruit basket"],
+        "adjs": ["woven", "traditional", "cute"],
+        "locations": ["fruits"],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "green veg basket": {
+        "type": "c",
+        "names": ["green veg basket"],
+        "adjs": ["woven", "traditional", "cute"],
+        "locations": ["vegetables"],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "green fruit basket": {
+        "type": "c",
+        "names": ["green fruit basket"],
+        "adjs": ["woven", "traditional", "cute"],
+        "locations": ["fruits"],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "yellow basket": {
+        "type": "c",
+        "names": ["yellow basket"],
+        "adjs": ["woven", "traditional", "cute"],
+        "locations": ["fruits"],
+        "properties": ["closed"],
+        "desc": [None],
+    },
+    "orange basket": {
+        "type": "c",
+        "names": ["orange basket"],
+        "adjs": ["woven", "traditional", "cute"],
+        "locations": ["vegetables"],
         "properties": ["closed"],
         "desc": [None],
     },
     "counter": {
         "type": "s",
-        "names": ["counter"],
-        "adjs": ["vast"],
-        "locations": ["kitchen"],
-        "properties": [],
-        "desc": [None],
-    },
-    "table": {
-        "type": "s",
-        "names": ["table", "kitchen island"],
-        "adjs": ["massive"],
-        "locations": ["kitchen"],
+        "names": ["counter", "checkout counter"],
+        "adjs": ["high-tech", "vast"],
+        "locations": ["checkout"],
         "properties": [],
         "desc": [None],
     },
@@ -404,7 +1079,7 @@ ENTITIES = {
         "type": "stove",
         "names": ["stove"],
         "adjs": ["conventional"],
-        "locations": ["kitchen"],
+        "locations": ["checkout"],
         "properties": [],
         "desc": ["Useful for frying things."],
     },
@@ -412,7 +1087,7 @@ ENTITIES = {
         "type": "oven",
         "names": ["oven"],
         "adjs": ["conventional"],
-        "locations": ["kitchen"],
+        "locations": ["checkout"],
         "properties": [],
         "desc": ["Useful for roasting things."],
     },
@@ -422,7 +1097,40 @@ ENTITIES = {
         "type": "s",
         "names": ["shelf"],
         "adjs": ["wooden"],
-        "locations": ["pantry"],
+        "locations": ["checkout"],
+        "properties": [],
+        "desc": [None],
+    },
+    "hygiene shelf": {
+        "type": "s",
+        "names": ["hygiene shelf"],
+        "adjs": ["wooden"],
+        "locations": ["hygiene"],
+        "properties": [],
+        "desc": [None],
+    },
+    "ingredients shelf": {
+        "type": "s",
+        "names": ["ingredients shelf"],
+        "adjs": ["wooden"],
+        "locations": ["ingredients"],
+        "properties": [],
+        "desc": [None],
+    },
+    "stationery shelf": {
+        "type": "s",
+        "names": ["stationery shelf"],
+        "adjs": ["wooden"],
+        "locations": ["stationery"],
+        "properties": [],
+        "desc": [None],
+    },
+    
+    "hardware shelf": {
+        "type": "s",
+        "names": ["hardware shelf", "tech shelf"],
+        "adjs": ["wooden"],
+        "locations": ["hardware"],
         "properties": [],
         "desc": [None],
     },
@@ -432,23 +1140,23 @@ ENTITIES = {
         "type": "toaster",
         "names": ["BBQ"],
         "adjs": ["recent"],
-        "locations": ["backyard"],
+        "locations": ["restaurant"],
         "properties": [],
         "desc": ["Useful for grilling things."],
     },
-    "patio table": {
+    "restaurant table": {
         "type": "s",
-        "names": ["patio table"],
-        "adjs": ["stylish"],
-        "locations": ["backyard"],
+        "names": ["restaurant table"],
+        "adjs": ["stylish", "chic"],
+        "locations": ["restaurant"],
         "properties": [],
         "desc": [None],
     },
-    "patio chair": {
+    "restaurant chair": {
         "type": "s",
-        "names": ["patio chair"],
-        "adjs": ["stylish"],
-        "locations": ["backyard"],
+        "names": ["restaurant chair"],
+        "adjs": ["stylish", "chic"],
+        "locations": ["restaurant"],
         "properties": [],
         "desc": [None],
     },
@@ -458,27 +1166,48 @@ ENTITIES = {
         "type": "s",
         "names": ["showcase"],
         "adjs": ["metallic"],
-        "locations": ["supermarket"],
+        "locations": ["checkout"],
         "properties": [],
         "desc": [None],
     },
-
+    "hygiene showcase": {
+        "type": "s",
+        "names": ["hygiene showcase"],
+        "adjs": ["metallic"],
+        "locations": ["hygiene"],
+        "properties": [],
+        "desc": [None],
+    },
+    "clothing showcase": {
+        "type": "s",
+        "names": ["clothing showcase"],
+        "adjs": ["metallic"],
+        "locations": ["clothing"],
+        "properties": [],
+        "desc": [None],
+    },
+    "meats showcase": {
+        "type": "s",
+        "names": ["meats showcase"],
+        "adjs": ["metallic"],
+        "locations": ["meats"],
+        "properties": [],
+        "desc": [None],
+    },
+    "ingreditents showcase": {
+        "type": "s",
+        "names": ["ingredients showcase"],
+        "adjs": ["metallic"],
+        "locations": ["ingredients"],
+        "properties": [],
+        "desc": [None],
+    },
     # Livingroom
     "sofa": {
         "type": "s",
         "names": ["sofa", "couch"],
         "adjs": ["comfy"],
-        "locations": ["livingroom"],
-        "properties": [],
-        "desc": [None],
-    },
-
-    # Bedroom
-    "bed": {
-        "type": "s",
-        "names": ["bed"],
-        "adjs": ["large"],
-        "locations": ["bedroom"],
+        "locations": ["restaurant"],
         "properties": [],
         "desc": [None],
     },
@@ -488,7 +1217,7 @@ ENTITIES = {
         "type": "s",
         "names": ["toilet"],
         "adjs": ["white"],
-        "locations": ["bathroom"],
+        "locations": ["restaurant"],
         "properties": [],
         "desc": [None],
     },
@@ -502,19 +1231,19 @@ ENTITIES = {
     # },
 
     # Shed
-    "workbench": {
-        "type": "s",
-        "names": ["workbench"],
-        "adjs": ["wooden"],
-        "locations": ["shed"],
-        "properties": [],
+    "donation box": {
+        "type": "c",
+        "names": ["donation box", "charity box"],
+        "adjs": ["transparent"],
+        "locations": ["checkout", "restaurant"],
+        "properties": ["closed"],
         "desc": [None],
     },
-    "toolbox": {
+    "tips box": {
         "type": "c",
-        "names": ["toolbox"],
-        "adjs": ["metallic"],
-        "locations": ["shed"],
+        "names": ["tips box", "tip box"],
+        "adjs": ["transparent"],
+        "locations": ["restaurant"],
         "properties": ["closed"],
         "desc": [None],
     },
@@ -522,58 +1251,57 @@ ENTITIES = {
 }
 
 NEIGHBORS = {
-    "kitchen": ["livingroom", "backyard", "corridor", "pantry"],
-    "pantry": ["kitchen"],
-    "livingroom": ["kitchen", "bedroom", "driveway", "corridor"],
-    "bathroom": ["corridor"],
-    "bedroom": ["livingroom", "corridor"],
-    "backyard": ["kitchen", "garden", "shed", "corridor"],
-    "garden": ["backyard"],
-    "shed": ["backyard"],
-    "driveway": ["livingroom", "street", "corridor"],
-    "street": ["driveway", "supermarket"],
-    "corridor": ["livingroom", "kitchen", "bedroom", "bathroom", "driveway", "backyard"],
-    "supermarket": ["street"],
+    "checkout": ["fruits", "stationery", "meats", "vegetables"],
+    "vegetables": ["checkout"],
+    "fruits": ["checkout", "clothing", "restaurant", "meats"],
+    "ingredients": ["meats"],
+    "clothing": ["fruits", "meats"],
+    "stationery": ["checkout", "hardware", "hygiene", "meats"],
+    "hardware": ["stationery"],
+    "hygiene": ["stationery"],
+    "restaurant": ["fruits", "security", "meats"],
+    "security": ["driveway", "carparking"],
+    "meats": ["fruits", "checkout", "clothing", "ingredients", "restaurant", "stationery"],
+    "carparking": ["security"],
 }
 
 ROOMS = [
-    ["kitchen"],
-    ["pantry", "livingroom", "corridor", "bedroom", "bathroom"],
-    ["shed", "garden", "backyard"],
-    ["driveway", "street", "supermarket"]
+    ["checkout"],
+    ["vegetables", "fruits", "meats", "clothing", "ingredients"],
+    ["hygiene", "hardware", "stationery", "restaurant"],
+    ["security", "carparking"]
 ]
 
 DOORS = [
     {
-        "path": ("pantry", "kitchen"),
-        "names": ["frosted-glass door", "plain door"],
+        "path": ("vegetable", "checkout"),
+        "names": ["sliding glass door", "plain door", "screen door"],
     },
     {
-        "path": ("kitchen", "backyard"),
+        "path": ("checkout", "stationery"),
+        "names": ["sliding glass door", "plain door", "screen door"],
+    },
+    {
+        "path": ("meats", "stationery"),
         "names": ["sliding patio door", "patio door", "screen door"],
     },
     {
-        "path": ("corridor", "backyard"),
-        "names": ["sliding patio door", "patio door", "screen door"],
+        "path": ("stationery", "hygiene"),
+        "names": ["sliding glass door", "plain door", "screen door"],
     },
     {
-        "path": ("backyard", "shed"),
-        "names": ["barn door", "wooden door"],
+        "path": ("fruits", "restaurant"),
+        "names": ["sliding glass door", "plain door", "screen door"],
     },
     {
-        "path": ("livingroom", "driveway"),
-        "names": ["front door", "fiberglass door"],
+        "path": ("meats", "restaurant"),
+        "names": ["sliding glass door", "plain door", "screen door"],
     },
     {
-        "path": ("corridor", "driveway"),
-        "names": ["front door", "fiberglass door"],
-    },
-    {
-        "path": ("supermarket", "street"),
-        "names": ["sliding door", "commercial glass door"],
+        "path": ("carparking", "security"),
+        "names": ["sliding glass door", "plain door", "screen door"],
     },
 ]
-
 
 def pick_name(M, names, rng):
     names = list(names)
@@ -818,7 +1546,7 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
         * cook : Whether some ingredients need to be cooked.
         * cut : Whether some ingredients need to be cut.
         * drop : Whether the player's inventory has limited capacity.
-        * go : Number of locations in the game (1, 6, 9, or 12).
+        * go : Number of locations in the game (1, 6, or 10).
     """
     options = options or GameOptions()
 
@@ -869,7 +1597,7 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
     M = textworld.GameMaker(options)
 
     recipe = M.new(type='RECIPE', name='')
-    meal = M.new(type='meal', name='meal')
+    meal = M.new(type='meal', name='items')
     M.add_fact("out", meal, recipe)
     meal.add_property("edible")
     M.nowhere.append(recipe)  # Out of play object.
@@ -880,12 +1608,10 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
         rooms_to_place = ROOMS[:1]
     elif options.nb_rooms == 6:
         rooms_to_place = ROOMS[:2]
-    elif options.nb_rooms == 9:
+    elif options.nb_rooms == 10:
         rooms_to_place = ROOMS[:3]
-    elif options.nb_rooms == 12:
-        rooms_to_place = ROOMS[:4]
     else:
-        raise ValueError("Cooking games can only have {1, 6, 9, 12} rooms.")
+        raise ValueError("Shopping games can only have {1, 6, 10} rooms.")
 
     G = make_graph_world(rng_map, rooms_to_place, NEIGHBORS, size=(5, 5))
     rooms = M.import_graph(G)
@@ -905,22 +1631,22 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
             door.add_property("closed")
 
     # Find kitchen.
-    kitchen = M.find_by_name("kitchen")
+    kitchen = M.find_by_name("checkout") # Changed to checkout
 
     # The following predicates will be used to force the "prepare meal"
     # command to happen in the kitchen.
     M.add_fact("cooking_location", kitchen, recipe)
 
     # Place some default furnitures.
-    place_entities(M, ["table", "stove", "oven", "counter", "fridge", "BBQ", "shelf", "showcase"], rng_objects)
+    place_entities(M, ["basket", "counter", "fridge", "shelf", "showcase"], rng_objects)
 
     # Place some random furnitures.
     nb_furnitures = rng_objects.randint(len(rooms), len(ENTITIES) + 1)
     place_random_furnitures(M, nb_furnitures, rng_objects)
 
     # Place the cookbook and knife somewhere.
-    cookbook = place_entity(M, "cookbook", rng_objects)
-    cookbook.infos.synonyms = ["recipe"]
+    cookbook = place_entity(M, "shopping list", rng_objects) # shopping list instead of cookbook
+    cookbook.infos.synonyms = ["list"]
     if rng_objects.rand() > 0.5 or settings.get("cut"):
         knife = place_entity(M, "knife", rng_objects)
 
@@ -928,7 +1654,8 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
     M.set_player(start_room)
 
     M.grammar = textworld.generator.make_grammar(options.grammar, rng=rng_grammar)
-
+    
+    '''
     # Remove every food preparation with grilled, if there is no BBQ.
     if M.find_by_name("BBQ") is None:
         for name, food_preparations in allowed_food_preparations.items():
@@ -937,7 +1664,7 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
 
         # Disallow food with an empty preparation list.
         allowed_foods = [name for name in allowed_foods if allowed_food_preparations[name]]
-
+    '''
     # Decide which ingredients are needed.
     nb_ingredients = settings.get("recipe", 1)
     assert nb_ingredients > 0 and nb_ingredients <= 5, "recipe must have {1,2,3,4,5} ingredients."
@@ -963,11 +1690,11 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
         # M.nowhere.append(ingredient)
 
     # Move ingredients in the player's inventory according to the `take` skill.
-    nb_ingredients_already_in_inventory = nb_ingredients - settings.get("take", 0)
-    shuffled_ingredients = list(ingredient_foods)
-    rng_quest.shuffle(shuffled_ingredients)
-    for ingredient in shuffled_ingredients[:nb_ingredients_already_in_inventory]:
-        M.move(ingredient, M.inventory)
+    #nb_ingredients_already_in_inventory = nb_ingredients - settings.get("take", 0)
+    #shuffled_ingredients = list(ingredient_foods)
+    #rng_quest.shuffle(shuffled_ingredients)
+    #for ingredient in shuffled_ingredients[:nb_ingredients_already_in_inventory]:
+        #M.move(ingredient, M.inventory)
 
     # Compute inventory capacity.
     inventory_limit = 10  # More than enough.
@@ -1095,13 +1822,16 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
                        for t in set(TYPES_OF_CUTTING[1:]) - {ingredient[2]}]  # Wrong cutting.
 
         quests.append(Quest(win_events=win_events, fail_events=[ingredient_consumed] + fail_events))
+    
+    
+        
+    #quests.append(Quest(win_events=[itemsCounter], fail_events=consumed_ingredient_events))
+    #holding_meal = Event(conditions={M.new_fact("in", meal, M.inventory)})
+    #quests.append(Quest(win_events=[holding_meal], fail_events=consumed_ingredient_events))
 
-    holding_meal = Event(conditions={M.new_fact("in", meal, M.inventory)})
-    quests.append(Quest(win_events=[holding_meal], fail_events=consumed_ingredient_events))
-
-    meal_burned = Event(conditions={M.new_fact("burned", meal)})
-    meal_consumed = Event(conditions={M.new_fact("consumed", meal)})
-    quests.append(Quest(win_events=[meal_consumed], fail_events=[meal_burned]))
+    #meal_burned = Event(conditions={M.new_fact("burned", meal)})
+    #meal_consumed = Event(conditions={M.new_fact("consumed", meal)})
+    #quests.append(Quest(win_events=[meal_consumed], fail_events=[meal_burned]))
 
     M.quests = quests
 
@@ -1112,12 +1842,12 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
     walkthrough = []
 
     # Start by checking the inventory.
-    walkthrough.append("inventory")
+    #walkthrough.append("inventory")
 
     # 0. Find the kitchen and read the cookbook.
     walkthrough += move(M, G, current_room, kitchen)
     current_room = kitchen
-    walkthrough.append("examine cookbook")
+    walkthrough.append("examine shopping list")
 
     # 1. Drop unneeded objects.
     for entity in M.inventory.content:
@@ -1143,8 +1873,9 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
         current_room = food_room
 
     # 3. Go back to the kitchen.
-    walkthrough += move(M, G, current_room, kitchen)
-
+    #walkthrough += move(M, G, current_room, kitchen)
+    
+    '''
     # 4. Process ingredients (cook).
     if settings.get("cook"):
         for food, type_of_cooking, _ in ingredients:
@@ -1169,7 +1900,7 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
         knife = M.find_by_name("knife")
         if knife:
             knife_location = knife.parent.name
-            knife_on_the_floor = knife_location == "kitchen"
+            knife_on_the_floor = knife_location == "checkout" # changed from kitchen
             for i, (food, _, type_of_cutting) in enumerate(ingredients):
                 if type_of_cutting == "uncut":
                     continue
@@ -1195,28 +1926,29 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
                 knife_on_the_floor = True
                 if free_up_space:
                     walkthrough.append("take {}".format(ingredient_to_drop.name))
-
+    '''
     # 6. Prepare and eat meal.
-    walkthrough.append("prepare meal")
-    walkthrough.append("eat meal")
+    #walkthrough.append("prepare meal")
+    #walkthrough.append("eat items")
 
-    cookbook_desc = "You open the copy of 'Cooking: A Modern Approach (3rd Ed.)' and start reading:\n"
+    cookbook_desc = "You examine the shopping list and start reading:\n"
     recipe = textwrap.dedent(
         """
-        Recipe #1
+        Shopping list #1
         ---------
-        Gather all following ingredients and follow the directions to prepare this tasty meal.
+        Gather all following items and follow the directions to enjoy a wonderful and hassle-free day of shopping.
 
-        Ingredients:
+        Items:
         {ingredients}
 
         Directions:
         {directions}
         """
     )
-    recipe_ingredients = "\n  ".join(ingredient[0].name for ingredient in ingredients)
-
+    recipe_ingredients = "\n".join(ingredient[0].name for ingredient in ingredients)
+    
     recipe_directions = []
+    '''
     for ingredient in ingredients:
         cutting_verb = TYPES_OF_CUTTING_VERBS.get(ingredient[2])
         if cutting_verb:
@@ -1225,8 +1957,8 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
         cooking_verb = TYPES_OF_COOKING_VERBS.get(ingredient[1])
         if cooking_verb:
             recipe_directions.append(cooking_verb + " the " + ingredient[0].name)
-
-    recipe_directions.append("prepare meal")
+    '''
+    recipe_directions.append("Gather all above items and enjoy!")
     recipe_directions = "\n  ".join(recipe_directions)
     recipe = recipe.format(ingredients=recipe_ingredients, directions=recipe_directions)
     cookbook.infos.desc = cookbook_desc + recipe
@@ -1270,14 +2002,14 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
         "max_score": sum(quest.reward for quest in game.quests),
     }
 
-    objective = ("You are hungry! Let's cook a delicious meal. Check the cookbook"
-                 " in the kitchen for the recipe. Once done, enjoy your meal!")
+    objective = ("You are eager to shop! Let's get you sorted to quench your desire. Check the shopping list"
+                 " in the checkout for the items needed and directions. Once done, enjoy your items!")
     game.objective = objective
 
     game.metadata = metadata
     skills_uuid = "+".join("{}{}".format(k, "" if settings[k] is True else settings[k])
                            for k in SKILLS if k in settings and settings[k])
-    uuid = "tw-cooking{split}-{specs}-{seeds}"
+    uuid = "tw-testing{split}-{specs}-{seeds}"
     uuid = uuid.format(split="-{}".format(settings["split"]) if settings.get("split") else "",
                        specs=skills_uuid,
                        seeds=encode_seeds([options.seeds[k] for k in sorted(options.seeds)]))
@@ -1288,14 +2020,14 @@ def make(settings: Mapping[str, str], options: Optional[GameOptions] = None) -> 
 def build_argparser(parser=None):
     parser = parser or argparse.ArgumentParser()
 
-    group = parser.add_argument_group('The Cooking Game settings')
+    group = parser.add_argument_group('The Shopping Game settings')
     group.add_argument("--recipe", type=int, default=1, metavar="INT",
-                       help="Number of ingredients in the recipe. Default: %(default)s")
+                       help="Number of items in the shopping list. Default: %(default)s")
     group.add_argument("--take", type=int, default=0, metavar="INT",
-                       help="Number of ingredients to find. It must be less or equal to"
+                       help="Number of items to find. It must be less or equal to"
                             " the value of `--recipe`. Default: %(default)s")
-    group.add_argument("--go", type=int, default=1, choices=[1, 6, 9, 12],
-                       help="Number of locations in the game (1, 6, 9, or 12). Default: %(default)s")
+    group.add_argument("--go", type=int, default=1, choices=[1, 6, 10],
+                       help="Number of locations in the game (1, 6 or 10). Default: %(default)s")
     group.add_argument('--open', action="store_true",
                        help="Whether containers/doors need to be opened.")
     group.add_argument('--cook', action="store_true",
@@ -1318,8 +2050,8 @@ def build_argparser(parser=None):
     return parser
 
 
-register(name="tw-cooking",
-         desc=("Generate cooking games similar to those used for the"
+register(name="tw-testing",
+         desc=("Generate shopping games similar to the cooking games used for the"
                " First TextWorld Problem (FTWP) competition (https://aka.ms/ftwp)."),
          make=make,
          add_arguments=build_argparser)
